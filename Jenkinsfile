@@ -105,10 +105,10 @@ pipeline {
       sh "docker-compose -f docker-compose-test-local.yml down"
     }
     success {
-      slackSend(color: "good", message: ${env.JOB_NAME} completed successfully, details at ${env.RUN_DISPLAY_URL}")
+      slackSend(color: "good", message: "${env.JOB_NAME} completed successfully, details at ${env.RUN_DISPLAY_URL}")
     }
     failure {
-      slackSend(color: "failure", message: ${env.JOB_NAME} failed, details at ${env.RUN_DISPLAY_URL}")
+      slackSend(color: "failure", message: "${env.JOB_NAME} failed, details at ${env.RUN_DISPLAY_URL}")
     }
   }
 }
